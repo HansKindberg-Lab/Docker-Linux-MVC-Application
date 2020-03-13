@@ -3,9 +3,38 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Global", ".Global", "{B49CF89C-B7F1-4F06-AF1B-E00044DFAFE0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documents", "Documents", "{EE3EA2D7-BBD9-4DDA-8127-E0ED353BD0BE}"
+	ProjectSection(SolutionItems) = preProject
+		..\ReadMe.md = ..\ReadMe.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nginx", "Nginx", "{E78F6ADD-6E61-44AC-AAF6-FB6F83229F7F}"
+	ProjectSection(SolutionItems) = preProject
+		..\Nginx\Dockerfile = ..\Nginx\Dockerfile
+		..\Nginx\localhost.crt = ..\Nginx\localhost.crt
+		..\Nginx\localhost.key = ..\Nginx\localhost.key
+		..\Nginx\nginx.conf = ..\Nginx\nginx.conf
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{1329BC9D-C7A1-4252-B661-475CEB1EE9FF}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.config = NuGet.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{85BEFB27-E4DB-49CE-9261-9C39E62B6C82}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitignore = ..\.gitignore
+		..\Azure-Pipelines.yml = ..\Azure-Pipelines.yml
+		..\Docker-Compose.Development.yml = ..\Docker-Compose.Development.yml
+		..\Docker-Compose.Release.yml = ..\Docker-Compose.Release.yml
+		..\Docker-Compose.yml = ..\Docker-Compose.yml
+	EndProjectSection
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{CFA749D4-4A93-4202-A366-210FC35E4AC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unit-tests", "Unit-tests\Unit-tests.csproj", "{EBFD20A3-67E7-4F0F-A430-798B5DBE0D1B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Unit-tests", "Unit-tests\Unit-tests.csproj", "{EBFD20A3-67E7-4F0F-A430-798B5DBE0D1B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,6 +53,12 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EE3EA2D7-BBD9-4DDA-8127-E0ED353BD0BE} = {B49CF89C-B7F1-4F06-AF1B-E00044DFAFE0}
+		{E78F6ADD-6E61-44AC-AAF6-FB6F83229F7F} = {B49CF89C-B7F1-4F06-AF1B-E00044DFAFE0}
+		{1329BC9D-C7A1-4252-B661-475CEB1EE9FF} = {B49CF89C-B7F1-4F06-AF1B-E00044DFAFE0}
+		{85BEFB27-E4DB-49CE-9261-9C39E62B6C82} = {B49CF89C-B7F1-4F06-AF1B-E00044DFAFE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B3B67D20-9CA9-438C-B5E2-AEF57ABD6F7C}

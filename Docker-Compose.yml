@@ -1,0 +1,16 @@
+version: "3.7"
+services:
+    application:
+        build:
+            context: ./Source
+            dockerfile: ./Application/Dockerfile
+        depends_on:
+            - nginx
+        expose:
+            - "5000"
+        restart: always
+    nginx:
+        build:
+            context: ./Nginx
+            dockerfile: Dockerfile
+        restart: always
