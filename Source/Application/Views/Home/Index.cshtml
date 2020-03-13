@@ -5,5 +5,10 @@
 <div class="text-center">
 	<h1 class="display-4">Welcome</h1>
 	<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-	<p>Change: <strong>2</strong></p>
+	<p>Change: <strong>3</strong></p>
+	<p>Machine-name: <strong>@Environment.MachineName</strong></p>
+	<p>LocalIpAddress: <strong>@Context.Connection.LocalIpAddress</strong></p>
+	<p>LocalPort: <strong>@Context.Connection.LocalPort</strong></p>
+	<p>RemoteIpAddress: <strong>@Context.Connection.RemoteIpAddress</strong></p>
+	<p>RemotePort: <strong>@Context.Connection.RemotePort</strong></p>
 </div>
