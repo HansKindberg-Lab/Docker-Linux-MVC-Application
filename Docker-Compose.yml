@@ -5,11 +5,11 @@ services:
             context: ./Source
             dockerfile: ./Application/Dockerfile
         depends_on:
-            - nginx
+            - web-server
         expose:
             - "5000"
         restart: always
-    nginx:
+    web-server:
         build:
             context: ./Nginx
             dockerfile: Dockerfile

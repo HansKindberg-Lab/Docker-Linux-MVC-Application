@@ -1,9 +1,9 @@
 version: "3.7"
 services:
     application:
-        image: ${CONTAINER_REGISTRY}:application
-    nginx:
-        image: ${CONTAINER_REGISTRY}:nginx
+        image: ${IMAGE_PREFIX}Docker-Linux-MVC-Application
+    web-server:
+        image: ${IMAGE_PREFIX}Docker-Linux-MVC-Web-Server
         ports:
             - "80:80"
             - "443:443"

@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-    nginx:
+    web-server:
         ports:
             - "8099:80"
             - "443:443"
