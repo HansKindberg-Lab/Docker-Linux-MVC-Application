@@ -1,9 +1,9 @@
 version: "3.7"
 services:
     application:
-        image: ${IMAGE_PREFIX}Docker-Linux-MVC-Application
+        image: ${IMAGE_PREFIX}docker-linux-mvc-application
     web-server:
-        image: ${IMAGE_PREFIX}Docker-Linux-MVC-Web-Server
+        image: ${IMAGE_PREFIX}docker-linux-mvc-web-server
         ports:
             - "80:80"
             - "443:443"
