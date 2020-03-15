@@ -10,5 +10,5 @@ jobs:
         steps:
             - script: echo Hello, world!
                 displayName: "Script 1"
-            - powershell: "Write-Host 'Hello World';"
+            - powershell: 'Write-Host "Hello World";'
                 displayName: "Script 2"
