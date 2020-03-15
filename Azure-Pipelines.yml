@@ -1,26 +1,27 @@
 # https://aka.ms/yaml
 
+# Setting a custom name of the build.
+name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
+
 variables:
   ${{ if ne( variables['Build.SourceBranch'], 'refs/heads/masterXX' ) }}:
     _nonMasterBranchTagSuffix: "-$(Build.SourceBranchName)"
   imagePrefix: "IMAGE_PREFIX=hanskindberg/"
   imageSuffix: "IMAGE_SUFFIX=:latest$(_nonMasterBranchTagSuffix)"
-  # Setting a custom name of the build.
-  name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
-
-name: $(name)
 
 jobs:
   - job: "Linux"
     pool:
       vmImage: "ubuntu-latest"
     steps:
+      - powershell: "Write-Host '$(name)';"
+        displayName: "Script"
       - task: DockerCompose@0
         displayName: "Build"
         inputs:
           action: "Build services"
           additionalDockerComposeFiles: "Docker-Compose.Release.yml"
-          additionalImageTags: $(name)
+          additionalImageTags: "aaaaa"
           containerregistrytype: "Container Registry"
           dockerComposeFile: "Docker-Compose.yml"
           dockerComposeFileArgs: |
