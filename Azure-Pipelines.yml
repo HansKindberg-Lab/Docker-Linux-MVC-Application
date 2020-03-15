@@ -4,7 +4,7 @@
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
 variables:
-  ${{ if ne( variables["Build.SourceBranch"], 'refs/heads/masterXX' ) }}:
+  ${{ if ne( variables['Build.SourceBranch'], 'refs/heads/masterXX' ) }}:
     _suffix: "-$(Build.SourceBranchName)"
   imagePrefix: "IMAGE_PREFIX=hanskindberg/"
   imageSuffix: "IMAGE_SUFFIX=:latest$(_suffix)"
