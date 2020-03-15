@@ -3,9 +3,12 @@
 # Setting a custom name of the build.
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
-pool:
-    vmImage: "ubuntu-latest"
-
-steps:
-- script: echo Hello, world!
-  displayName: "Script 2"
+jobs:
+    - job: "Linux"
+        pool:
+            vmImage: "ubuntu-latest"
+        steps:
+            - script: echo Hello, world!
+                displayName: "Script 1"
+            - powershell: "Write-Host 'Hello World';"
+                displayName: "Script 2"
