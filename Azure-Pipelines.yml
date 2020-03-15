@@ -9,4 +9,4 @@ jobs:
             vmImage: 'ubuntu-18.04'
         steps:
             - script: echo Hello, world!
-                displayName: "Script 1"
+                displayName: 'Script 1'
