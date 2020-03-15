@@ -7,3 +7,4 @@ pool:
     vmImage: "ubuntu-latest"
 
 steps:
+- powershell:   displayName: 'PowerShell Script'
