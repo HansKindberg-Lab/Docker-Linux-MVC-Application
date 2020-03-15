@@ -3,10 +3,8 @@
 # Setting a custom name of the build.
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
-jobs:
-  - job: "Windows"
-    pool:
-      vmImage: "vs2017-win2016"
-      steps:
-        - powershell: 'Write-Host "Hello!";'
-          displayName: "Script 1"
+vmImage: "ubuntu-18.04"
+
+steps:
+- script: echo Hello world!
+  displayName: Say hello
