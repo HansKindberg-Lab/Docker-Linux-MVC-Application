@@ -7,8 +7,8 @@ pool:
     vmImage: "ubuntu-latest"
 
 steps:
-    displayName: "Script 1"
     - script: echo Hello, world!
+    displayName: "Script 1"
   
-    displayName: "Script 2"
     - powershell: "Write-Host 'Hello, world!';"
+    displayName: "Script 2"
