@@ -5,10 +5,3 @@ name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
 pool:
     vmImage: "ubuntu-latest"
-
-steps:
-    - script: echo Hello, world!
-    displayName: "Script 1"
-  
-    - powershell: "Write-Host 'Hello, world!';"
-    displayName: "Script 2"
