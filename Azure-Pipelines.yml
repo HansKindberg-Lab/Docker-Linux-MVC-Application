@@ -14,14 +14,14 @@ jobs:
     pool:
       vmImage: "ubuntu-latest"
     steps:
-      - powershell: "Write-Host '$(name)';"
+      - powershell: "Write-Host 'Hello: $(Build.BuildNumber)';"
         displayName: "Script"
       - task: DockerCompose@0
         displayName: "Build"
         inputs:
           action: "Build services"
           additionalDockerComposeFiles: "Docker-Compose.Release.yml"
-          additionalImageTags: "aaaaa"
+          additionalImageTags: "$(Build.BuildNumber)"
           containerregistrytype: "Container Registry"
           dockerComposeFile: "Docker-Compose.yml"
           dockerComposeFileArgs: |
