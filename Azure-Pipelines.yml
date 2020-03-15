@@ -4,13 +4,11 @@
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
 pool:
-  vmImage: 'ubuntu-latest'
+    vmImage: "ubuntu-latest"
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+    displayName: "Script 1"
+    - script: "echo Hello, world!"
+  
+    displayName: "Script 2"
+    - powershell: "Write-Host 'Hello, world!';"
