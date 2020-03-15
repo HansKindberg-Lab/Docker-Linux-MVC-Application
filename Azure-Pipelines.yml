@@ -3,14 +3,27 @@
 # Setting a custom name of the build.
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
+variables:
+  imagePrefix: "IMAGE_PREFIX=hanskindberg/"
+  imageSuffix: "IMAGE_SUFFIX=:latest"
+  ${{ if ne(variables["Build.SourceBranch"], "refs/heads/masterXX") }}: 
+    imageSuffix: "$(imageSuffix)-$(Build.SourceBranchName)"
+
 jobs:
   - job: "Linux"
     pool:
-      vmImage: "ubuntu-18.04"
+      vmImage: "ubuntu-latest"
     steps:
-      - script: echo Hello world!
-        displayName: "Script 1"
-      - powershell: "Write-Host 'Yoko!';"
-        displayName: "Script 2"
-      - powershell: "Write-Host 'Yeah man!';"
-        displayName: "Script 3"
+      - task: DockerCompose@0
+        displayName: "Build"
+        inputs:
+          action: "Build services"
+          additionalDockerComposeFiles: "Docker-Compose.Release.yml"
+          additionalImageTags: $(name)
+          containerregistrytype: "Container Registry"
+          dockerComposeFile: "Docker-Compose.yml"
+          dockerComposeFileArgs: |
+            $(imagePrefix)
+            $(imageSuffix)
+          includeSourceTags: true
+          qualifyImageNames: false
