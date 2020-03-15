@@ -7,4 +7,5 @@ pool:
     vmImage: "ubuntu-latest"
 
 steps:
-- powershell:   displayName: 'PowerShell Script'
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
