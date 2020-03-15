@@ -25,6 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{1329BC9D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Settings", "Settings", "{85BEFB27-E4DB-49CE-9261-9C39E62B6C82}"
 	ProjectSection(SolutionItems) = preProject
+		..\.editorconfig = ..\.editorconfig
 		..\.gitignore = ..\.gitignore
 		..\Azure-Pipelines.yml = ..\Azure-Pipelines.yml
 		..\Docker-Compose.Development.yml = ..\Docker-Compose.Development.yml
