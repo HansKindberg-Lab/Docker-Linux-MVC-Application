@@ -5,3 +5,5 @@ name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
 pool:
     vmImage: "ubuntu-latest"
+
+steps:
