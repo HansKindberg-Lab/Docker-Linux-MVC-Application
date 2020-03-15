@@ -8,7 +8,7 @@ pool:
 
 steps:
     displayName: "Script 1"
-    - script: "echo Hello, world!"
+    - script: echo Hello, world!
   
     displayName: "Script 2"
     - powershell: "Write-Host 'Hello, world!';"
