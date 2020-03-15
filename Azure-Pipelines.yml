@@ -1,14 +1,12 @@
 # https://aka.ms/yaml
 
 # Setting a custom name of the build.
-name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
+name: $(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)
 
 jobs:
-    - job: "Linux"
+    - job: Linux
         pool:
-            vmImage: "ubuntu-latest"
+            vmImage: ubuntu-latest
         steps:
             - script: echo Hello, world!
                 displayName: "Script 1"
-            - powershell: 'Write-Host "Hello World";'
-                displayName: "Script 2"
