@@ -10,5 +10,7 @@ insert_final_newline = false
 tab_width = 4
 trim_trailing_whitespace = true
 
-# [*.{cshtml,config}]
-# charset = utf-8-bom
+[*.{yaml,yml}]
+indent_size = 2
+indent_style = space
+tab_width = 2
