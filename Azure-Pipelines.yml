@@ -12,3 +12,5 @@ jobs:
         displayName: "Script 1"
       - powershell: "Write-Host 'Yoko!';"
         displayName: "Script 2"
+      - powershell: "Write-Host 'Yeah man!';"
+        displayName: "Script 3"
