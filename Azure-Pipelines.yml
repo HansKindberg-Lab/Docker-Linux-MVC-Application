@@ -4,11 +4,9 @@
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
 jobs:
-  - job: "Linux"
+  - job: Linux
     pool:
-      vmImage: "ubuntu-latest"
+      vmImage: 'ubuntu-18.04'
       steps:
         - script: echo Hello, world!
-          displayName: "Script 1"
-        - powershell: "Write-Host 'Hello!';"
-          displayName: "Script 2"
+          displayName: 'Script 1'
