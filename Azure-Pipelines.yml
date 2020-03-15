@@ -4,10 +4,10 @@
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
 variables:
+  ${{ if ne(variables["Build.SourceBranch"], "refs/heads/masterXX") }}:
+    _nonMasterBranchTagSuffix: "-$(Build.SourceBranchName)"
   imagePrefix: "IMAGE_PREFIX=hanskindberg/"
-  imageSuffix: "IMAGE_SUFFIX=:latest"
-  ${{ if ne( variables['Build.SourceBranch'], 'refs/heads/masterXX' ) }}: 
-    imageSuffix: "$(imageSuffix)-$(Build.SourceBranchName)"
+  imageSuffix: "IMAGE_SUFFIX=:latest$(_nonMasterBranchTagSuffix)"
 
 jobs:
   - job: "Linux"
