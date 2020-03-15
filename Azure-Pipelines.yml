@@ -3,7 +3,8 @@
 # Setting a custom name of the build.
 name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
-vmImage: "ubuntu-18.04"
+pool:
+  vmImage: "ubuntu-18.04"
 
 steps:
 - script: echo Hello world!
