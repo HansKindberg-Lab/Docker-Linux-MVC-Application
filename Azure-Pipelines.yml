@@ -1,7 +1,7 @@
 # https://aka.ms/yaml
 
 # Setting a custom name of the build.
-name: "$(Build.BuildNumber)-$(Build.SourceBranchName)"
+name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
 
 pool:
   vmImage: 'ubuntu-latest'
