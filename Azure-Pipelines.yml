@@ -19,8 +19,6 @@ jobs:
     pool:
       vmImage: "ubuntu-latest"
     steps:
-      - powershell: "Write-Host 'Hello: $(Build.BuildNumber)$(tagSuffix)';"
-        displayName: "Script"
       - task: DockerCompose@0
         displayName: "Build"
         inputs:
