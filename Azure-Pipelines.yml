@@ -9,7 +9,9 @@ trigger:
   - Development
 
 variables:
-  ${{ if ne( variables['Build.SourceBranch'], 'refs/heads/master' ) }}:
+  ${{ if eq(variables['Build.SourceBranch'], 'refs/heads/master') }}:
+    tagSuffix: ""
+  ${{ if ne(variables['Build.SourceBranch'], 'refs/heads/master') }}:
     tagSuffix: "-prerelease"
   imagePrefix: "IMAGE_PREFIX=hanskindberg/"
   imageSuffix: "IMAGE_SUFFIX=:latest$(tagSuffix)"
