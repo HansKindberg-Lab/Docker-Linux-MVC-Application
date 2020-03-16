@@ -1,31 +1,49 @@
 # https://aka.ms/yaml
+# The docker-registry-endpoint "Docker Hub" is registered as a service-connection.
 
 # Setting a custom name of the build.
-name: "$(date:yyyyMMdd)$(rev:.r)-$(Build.SourceBranchName)"
+name: "$(date:yyyyMMdd)$(rev:.r)"
+
+trigger:
+  - master
+  - Development
 
 variables:
-  ${{ if ne( variables['Build.SourceBranch'], 'refs/heads/masterXX' ) }}:
-    _suffix: "-$(Build.SourceBranchName)"
+  ${{ if ne( variables['Build.SourceBranch'], 'refs/heads/master' ) }}:
+    tagSuffix: "-prerelease"
   imagePrefix: "IMAGE_PREFIX=hanskindberg/"
-  imageSuffix: "IMAGE_SUFFIX=:latest$(_suffix)"
+  imageSuffix: "IMAGE_SUFFIX=:latest$(tagSuffix)"
 
 jobs:
   - job: "Linux"
     pool:
       vmImage: "ubuntu-latest"
     steps:
-      - powershell: "Write-Host 'Hello: $(Build.BuildNumber)';"
+      - powershell: "Write-Host 'Hello: $(Build.BuildNumber)$(tagSuffix)';"
         displayName: "Script"
       - task: DockerCompose@0
         displayName: "Build"
         inputs:
           action: "Build services"
           additionalDockerComposeFiles: "Docker-Compose.Release.yml"
-          additionalImageTags: "$(Build.BuildNumber)"
+          additionalImageTags: "$(Build.BuildNumber)$(tagSuffix)"
+          dockerComposeFile: "Docker-Compose.yml"
+          dockerComposeFileArgs: |
+            $(imagePrefix)
+            $(imageSuffix)
+          includeSourceTags: true
+          qualifyImageNames: false
+      - task: DockerCompose@0
+        displayName: "Push"
+        inputs:
+          action: "Push services"
+          additionalDockerComposeFiles: "Docker-Compose.Release.yml"
+          additionalImageTags: "$(Build.BuildNumber)$(tagSuffix)"
           containerregistrytype: "Container Registry"
           dockerComposeFile: "Docker-Compose.yml"
           dockerComposeFileArgs: |
             $(imagePrefix)
             $(imageSuffix)
+          dockerRegistryEndpoint: "Docker Hub"
           includeSourceTags: true
           qualifyImageNames: false
